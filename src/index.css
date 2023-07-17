@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.forms{
+  background-color: rgb(247, 247, 247);
+  margin-top: 8vh;
+  padding: 10px;
+  width: 320px;
+  height: 480px;
+  border: 2px solid rgb(218, 218, 218);
+  border-radius: 3px;
+}
+.forml{
+  background-color: rgb(247, 247, 247);
+  margin-top: 8vh;
+  width: 320px;
+  padding: 10px;
+  height: 310px;
+  border: 2px solid rgb(218, 218, 218);
+  border-radius: 3px;
+}
+.hr{
+  border: 1px solid rgb(32, 32, 32);
+  width: 317px;
+  margin-left: -10px;
+}
+.glbtn{
+  display: flex;
+  justify-content: center;
+}
+.btn1{
+  width: 297px;
+}

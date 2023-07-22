@@ -1,4 +1,6 @@
 body {
+  height: 100vh;
+  width: 100vw;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -11,28 +13,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.forms{
-  background-color: rgb(247, 247, 247);
-  margin-top: 8vh;
-  padding: 10px;
-  width: 320px;
-  height: 480px;
-  border: 2px solid rgb(218, 218, 218);
-  border-radius: 3px;
-}
 .forml{
-  background-color: rgb(247, 247, 247);
-  margin-top: 8vh;
-  width: 320px;
-  padding: 10px;
-  height: 310px;
-  border: 2px solid rgb(218, 218, 218);
+  border: 2px solid rgb(224, 224, 224);
   border-radius: 3px;
+  padding: 10px;
+  width: 320px;
+  height: 380px;
+}
+.forms{
+  position:relative;
+  border: 2px solid rgb(224, 224, 224);
+  border-radius: 3px;
+  padding: 10px;
+  width: 350px;
+  height: 560px;
 }
 .hr{
   border: 1px solid rgb(32, 32, 32);
-  width: 317px;
-  margin-left: -10px;
+  width: 300px;
 }
 .glbtn{
   display: flex;
@@ -40,4 +38,62 @@ code {
 }
 .btn1{
   width: 297px;
+}
+.sheading{
+  text-align: center;
+  position: relative;
+  margin-top: 8vh;
+}
+.lheading{
+  text-align: center;
+  position: relative;
+  margin-top: 8vh;
+}.cart-trolley{
+  margin-left: 1.5vw;
+  margin-top: .7vh;
+  font-size: 2.3vh;
+  color: white;
+}
+.cart-total{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  background-color: rgb(5, 255, 5);
+  font-size: 13px;
+  text-decoration: none;
+  padding-right: 2px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+.home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 3%;
+  width: 100%;
+  height: 100%;
+}
+.home1{
+  padding: 10px;
+  width:50%
+}
+.home1 img{
+  width: 80%
+}
+.services{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+.services1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid red;
+  width: 35%;
 }

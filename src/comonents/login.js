@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
+import IconButton from "@material-ui/core/IconButton";
+import Visibility from "@material-ui/icons/Visibility";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import Input from "@material-ui/core/Input";
+import { Link } from "react-router-dom";
 
 
 function Login() {
@@ -26,6 +32,7 @@ function Login() {
     console.log(json);
 
     if(json.success){
+
       // Save the auth token and redirect
       localStorage.setItem('token', json.authtoken)
       navigate("/");
@@ -39,6 +46,7 @@ function Login() {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
   
+  //Google login function
   const googleLogin = async () => {
 
     const {email, password} = credentials;
@@ -67,7 +75,16 @@ function Login() {
     }
   };
 
+  //password hide show 
+      const [showPassword, setShowPassword] = React.useState(false);
+
+      const handleClickShowPassword = () => {
+          setShowPassword(!showPassword);
+      };
+
   return (
+    <>
+    <h3 className="lheading">Login to your Account</h3>
     <div className="container forml">
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -82,6 +99,7 @@ function Login() {
             id="email"
             name="email"
             aria-describedby="emailHelp"
+            // placeholder="Enter your email"
           />
           <div id="emailHelp" className="form-text">
           </div>
@@ -90,15 +108,28 @@ function Login() {
           <label htmlFor="exampleInputPassword1" className="form-label">
             Password
           </label>
-          <input
-            type="password"
+          <Input
+            type={showPassword ? "text" : "password"}
             className="form-control"
             value={credentials.password}
             onChange={onChange}
             id="exampleInputPassword1"
             name="password"
+            endAdornment={
+              <InputAdornment position="end">
+                  <IconButton
+                    onClick={handleClickShowPassword}
+                  >
+                      {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+              </InputAdornment>
+            }
+            // placeholder="Enter your password"
           />
         </div>
+         <span><b>Does not have any account ? </b></span>
+        <Link className="btn btn-outline-success" to="/signup">Signup</Link>
+
         <hr className="hr"/>
         <div className="my-3 glbtn">
           <GoogleOAuthProvider clientId="941301008462-jo0o7bo3865igightks3cqi3v952776b.apps.googleusercontent.com">
@@ -117,10 +148,11 @@ function Login() {
             </GoogleOAuthProvider>
           </div>
         <button type="submit" className="btn btn-success btn1">
-          Submit
+          Login
         </button>
       </form>
     </div>
+    </>
   );
 }
 

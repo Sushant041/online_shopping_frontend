@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
+import IconButton from "@material-ui/core/IconButton";
+import Visibility from "@material-ui/icons/Visibility";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import Input from "@material-ui/core/Input";
+import { Link } from "react-router-dom";
 
 function Signup() {
 
@@ -11,8 +17,12 @@ function Signup() {
    
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const {name, email, password} = credentials;
-
+    const {name, email, password, cpassword} = credentials;
+    
+    if(password !== cpassword){
+      alert("password did not match with confirm password")
+      return 0;
+    }
     const response = await fetch("http://localhost:5000/api/auth/createuser", {
       method: "POST",
       headers: {
@@ -37,7 +47,8 @@ function Signup() {
       alert("Invalid Credentials")
     }
   };
-
+  
+  //google signup function
   const googleSignup = async () => {
 
     const {name, email, password} = credentials;
@@ -67,11 +78,24 @@ function Signup() {
     }
   };
 
+  //password hide show 
+  const [showPassword, setShowPassword] = React.useState(false);
+  const [showcPassword, setShowcPassword] = React.useState(false);
+
+
+  const handleClickShowPassword = () => {
+      setShowPassword(!showPassword);
+  };
+  const handleClickShowcPassword = () => {
+    setShowcPassword(!showcPassword);
+};
+
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
   return (
-     
+     <>
+     <h3 className="sheading">Create Account</h3>
     <div className="container forms">
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -99,25 +123,50 @@ function Signup() {
           <label htmlFor="password" className="form-label">
             Password
           </label>
-          <input
-            type="password"
+          <Input
+            type={showPassword ? "text" : "password"}
             className="form-control"
-            id="password" name="password" onChange={onChange} minLength={5} required
+            onChange={onChange}
+            id="password"
+            name="password"
+            endAdornment={
+              <InputAdornment position="end">
+                  <IconButton
+                    onClick={handleClickShowPassword}
+                  >
+                      {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+              </InputAdornment>
+            }
           />
         </div>
         <div className="mb-3">
           <label htmlFor="cpassword" className="form-label">
             Confirm Password
           </label>
-          <input
-            type="password"
+          <Input
+            type={showcPassword ? "text" : "password"}
             className="form-control"
-            id="cpassword" name="cpasssword" onChange={onChange} minLength={5} required
+            onChange={onChange}
+            id="cpassword"
+            name="password"
+            endAdornment={
+              <InputAdornment position="end">
+                  <IconButton
+                    onClick={handleClickShowcPassword}
+                  >
+                      {showcPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+              </InputAdornment>
+            }
           />
         </div>
+        <div className="container">
+        <span><b>Already have account ?</b>  </span>
+         <Link className="btn btn-outline-success" to="/login">Login</Link>
         <hr className="hr"/>
         <div className="my-3 glbtn">
-          <GoogleOAuthProvider clientId="941301008462-jo0o7bo3865igightks3cqi3v952776b.apps.googleusercontent.com">
+           <GoogleOAuthProvider clientId="941301008462-jo0o7bo3865igightks3cqi3v952776b.apps.googleusercontent.com">
           <GoogleLogin
                 onSuccess={credentialResponse => {
                   var decoded = jwt_decode(credentialResponse.credential);
@@ -133,10 +182,12 @@ function Signup() {
             </GoogleOAuthProvider>
           </div>
         <button type="submit" className="btn btn-success btn1">
-          Submit
+          Signup
         </button>
+        </div>
       </form>
     </div>
+    </>
   );
 }
 

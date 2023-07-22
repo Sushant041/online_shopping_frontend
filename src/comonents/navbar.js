@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-
+import { FiShoppingCart } from "react-icons/fi"
 
 function Navbar() {
   let location = useLocation();
@@ -10,7 +10,7 @@ function Navbar() {
       <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            Navbar
+            Online-Shopping
           </Link>
           <button
             className="navbar-toggler"
@@ -40,6 +40,19 @@ function Navbar() {
                   Products
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className={`nav-link ${location.pathname === '/contacts' ? "active" : ""}`} to="/contacts">
+                  Contacts
+                </Link>
+              </li>
+              <li>
+                  <Link to="/yourcart">
+                    <div className="d-flex">
+                    <FiShoppingCart className="cart-trolley active" />
+                    <span className="cart-total">10</span>
+                    </div>
+                  </Link>
+              </li>
             </ul>
             <form className="d-flex" role="search">
               <div  className="mx-2 d-flex">
@@ -55,7 +68,6 @@ function Navbar() {
               </div>
               <Link type="button" className="btn btn-success mx-1" to="/login">Login</Link>
               <Link type="button" className="btn btn-success  mx-1" to="/signup">Signup</Link>
-
             </form>
           </div>
         </div>

@@ -6,8 +6,9 @@ import Trusted from './trusted';
 
 function Home() {
   return (
+    
     <>
-    <div className="container home">
+    <div className="home">
       <div className='home1'>
         <span>Welcome to <h2>Online-Shopping</h2></span>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae alias, pariatur repellat molestiae </p>
@@ -16,14 +17,14 @@ function Home() {
         </Link>
       </div>
       <div className='home1'>
-        <figure>
           <img src="../home.jpg" alt="" />
-        </figure>
+        </div>
         </div>
         <Services/>
-        <Trusted/>
-    </div>
+          <Trusted/>
+        
     </>
+
   )
 }
 

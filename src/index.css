@@ -1,7 +1,12 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 body {
   height: 100vh;
   width: 100vw;
   margin: 0;
+  overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -27,6 +32,15 @@ code {
   padding: 10px;
   width: 350px;
   height: 560px;
+}
+.formcont{
+  margin-top: 4%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.inpcont{
+  width: 30%
 }
 .hr{
   border: 1px solid rgb(32, 32, 32);
@@ -59,7 +73,7 @@ code {
   align-items: center;
   justify-content: center;
   color: black;
-  background-color: rgb(5, 255, 5);
+  background-color: rgb(55, 185, 55);
   font-size: 13px;
   text-decoration: none;
   padding-right: 2px;
@@ -69,31 +83,174 @@ code {
 }
 .home{
   display: flex;
-  justify-content: center;
+  justify-content:space-around;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 3%;
-  width: 100%;
-  height: 100%;
+  margin: 4%;
 }
 .home1{
   padding: 10px;
-  width:50%
 }
 .home1 img{
-  width: 80%
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
 }
 .services{
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
+  margin-top: 5%;
+
 }
 .services1{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 2px solid red;
-  width: 35%;
+  /* border: 2px solid red; */
+  background-color: rgb(239, 255, 243);
+  border-radius: 10px;
+  height: 22vh;
+  margin: 2%;
+  padding: 8px;
+}
+.services2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 2px solid green; */
+  /* background-color: rgb(239, 255, 243); */
+  border-radius: 10px;
+  height: 22vh;
+  margin: 2%;
+}
+.services21{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid green; */
+  background-color: rgb(239, 255, 243);
+  border-radius: 10px;
+  height: 10vh;
+  width: 100%;
+  margin-bottom: 1vh;
+  padding: 8px;
+}
+.services22{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid green; */
+  background-color: rgb(239, 255, 243);
+  border-radius: 10px;
+  height: 10vh;
+  width: 100%;
+  margin-top: 1vh;
+  padding: 8px;
+}
+.services3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 2px solid green; */
+  background-color: rgb(239, 255, 243);
+  border-radius: 10px;
+  height: 22vh;
+  margin: 2%;
+  padding: 8px;
+}
+.icon{
+  font-size: 40px;
+  background-color: white;
+  padding: 4%;
+  margin: 3px;
+  border-radius: 50%;
+}
+.iconc{
+  font-size: 1.5rem;
+  margin: 8px 5px 0px 0px;
+}
+.iconc:hover{
+  cursor: pointer;
+  font-size: 30px;
+  /* background-color: rgb(194, 194, 194); */
+}
+.icontext{
+  margin-top: 13px;
+}
+.trusted{
+  margin-top: 6%;
+  background-color: rgb(239, 255, 243);
+  width: 100%;
+  height: 13vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.trusted span{
+  text-align: center;
+
+}
+.comp{
+  margin-top: 2%;
+   display: flex;
+   justify-content:space-evenly;
+   align-items: center;
+   flex-wrap: wrap;
+}
+.imgc img{
+  height: 50px;
+  width: 50px;
+}
+.secfoot{
+  width: 60%;
+  margin-top: 25%;
+  position: relative;
+  z-index: 400;
+}
+.footbox{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 8%;
+  flex-wrap: wrap;
+  /* border: 2px solid green; */
+  height: 10vh;
+  border-radius: 10px;
+  background-color: rgb(239, 255, 243);
+}
+footer{
+  background-color: rgb(32, 32, 33);
+  width: 100vw;
+  margin-top: -40px;
+}
+.footitem{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: relative;
+  z-index: 2;
+}
+.foot{
+    color: white;
+    margin-top: 100px;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 200px;
+}
+.hrf{
+  color: white;
+    margin-top: 5%;
+    height: 2px;
+    opacity: 1;
+    margin-left: 4vw;
+    width: 90vw
+}
+.footend{
+  color:white;
 }

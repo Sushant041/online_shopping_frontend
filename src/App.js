@@ -11,10 +11,13 @@ import Yourcart from "./comonents/yourcart";
 import Services from "./comonents/services";
 import Trusted from "./comonents/trusted";
 import Footer from "./comonents/footer";
+import Error from "./error";
+import { AppProvider } from "./comonents/context/productcontext";
 
 function App() {
   return (
     <>
+    <AppProvider>
       <Router>
         <Navbar />
         <Routes>
@@ -27,9 +30,11 @@ function App() {
           <Route exact path="/yourcart" element={<Yourcart />} />
           <Route exact path="/services" element={<Services />} />
           <Route exact path="/trusted" element={<Trusted />} />
+          <Route exact path="*" element={<Error />} />
         </Routes>
         <Footer/>
       </Router>
+      </AppProvider>
     </>
   );
 }

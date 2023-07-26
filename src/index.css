@@ -177,7 +177,7 @@ code {
 }
 .iconc:hover{
   cursor: pointer;
-  font-size: 30px;
+  font-size: 25px;
   /* background-color: rgb(194, 194, 194); */
 }
 .icontext{
@@ -209,7 +209,7 @@ code {
 }
 .secfoot{
   width: 60%;
-  margin-top: 25%;
+  margin-top: 20%;
   position: relative;
   z-index: 400;
 }
@@ -253,4 +253,11 @@ footer{
 }
 .footend{
   color:white;
+}
+.error{
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

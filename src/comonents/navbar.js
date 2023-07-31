@@ -7,7 +7,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
+      <nav className="navbar navbar-expand-lg bg-dark navbar-dark nav2">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             Online-Shopping

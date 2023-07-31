@@ -169,11 +169,12 @@ code {
   background-color: white;
   padding: 4%;
   margin: 3px;
+  color: green;
   border-radius: 50%;
 }
 .iconc{
   font-size: 1.5rem;
-  margin: 8px 5px 0px 0px;
+  margin: 5px;
 }
 .iconc:hover{
   cursor: pointer;
@@ -261,3 +262,104 @@ footer{
   justify-content: center;
   flex-direction: column;
 }
+.featureprd{
+  margin-top: 3%;
+  background-color: rgb(239, 255, 243);
+}
+.fprdct{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.fcard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2%;
+}
+.fprdct img{
+  width: 220px;
+  border-radius: 5px;
+}
+.featureimg:hover{
+  transform: scale(1.03);
+  transition: .2s;
+  opacity: .9;
+}
+.fpbody{
+  width: 95%;
+  display: flex;
+  color: black;
+  flex-direction: column;
+  margin-left: 2%;
+}
+.fcap{
+  margin-left: 4%;
+  color: black;
+  font-weight: 550;
+}
+.flink{
+  text-decoration: none;
+}
+
+/* css for loading */
+/* .isLoadong{
+  color: rgb(20, 79, 20);
+}
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+} */

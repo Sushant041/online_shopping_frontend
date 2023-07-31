@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import Services from './services';
 import Trusted from './trusted';
+import FeatureProduct from './featureproducts';
 
 
 function Home() {
@@ -20,8 +21,9 @@ function Home() {
           <img src="../home.jpg" alt="" />
         </div>
         </div>
+        <FeatureProduct/>
         <Services/>
-          <Trusted/>
+        <Trusted/>
         
     </>
 

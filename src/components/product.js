@@ -2,11 +2,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import FormatPrice from "./helpers/formatprice";
 
+
 const Product = (curElem) => {
   const { id, name, image, price, category } = curElem;
-
   return (
-    <NavLink className="flink" to={`/singleproduct/${id}`}>
+    <NavLink className="flink" to={`./singleproduct/${id}`}>
       <div className="fcard">
         <figure>
           <img src={image} alt={name} className="featureimg" />

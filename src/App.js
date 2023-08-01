@@ -1,18 +1,19 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./comonents/navbar";
-import Home from "./comonents/home";
-import Products from "./comonents/products";
-import About from "./comonents/about";
-import Login from "./comonents/login";
-import Signup from "./comonents/signup";
-import Contact from "./comonents/contacts";
-import Yourcart from "./comonents/yourcart";
-import Services from "./comonents/services";
-import Trusted from "./comonents/trusted";
-import Footer from "./comonents/footer";
+import Navbar from "./components/navbar";
+import Home from "./components/home";
+import Products from "./components/products";
+import About from "./components/about";
+import Login from "./components/login";
+import Signup from "./components/signup";
+import Contact from "./components/contacts";
+import Yourcart from "./components/yourcart";
+import Services from "./components/services";
+import Trusted from "./components/trusted";
+import Footer from "./components/footer";
 import Error from "./error";
-import { AppProvider } from "./comonents/context/productcontext";
+import { AppProvider } from "./components/context/productcontext";
+import SingleProduct from "./components/singleproduct";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/yourcart" element={<Yourcart />} />
           <Route exact path="/services" element={<Services />} />
           <Route exact path="/trusted" element={<Trusted />} />
+          <Route exact path="/singleproduct/:id" element={<SingleProduct/>} />
           <Route exact path="*" element={<Error />} />
         </Routes>
         <Footer/>

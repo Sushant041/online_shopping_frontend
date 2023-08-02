@@ -310,27 +310,46 @@ footer{
 /* singleproduct ----------*/
 
 .sptitle{
-  margin: 5% 0 0 5%;
+  margin: 3% 0 0 3%;
   font-weight: 500;
   font-size: 2.5rem;
 }
 .singlepro{
    display: flex;
-   justify-content: space-evenly;
+   justify-content: center;
    align-items: center;
    width: 100%;
    flex-wrap: wrap;
 }
 .spimg{
-  border: 2px solid red;
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+  /* flex-wrap: wrap; */
+  padding: 2%;
+  margin-top: 10%;
+}
+.spimg1{
+  width: 120px;
+  border-radius: 5px;
+  margin: 0 5px 0px 5px;
+  cursor: pointer;
+}
+.spimg2{
+  width: 250px;
+  border-radius: 5px;
+  margin: 0 5px 0px 5px;
 }
 .sprodata{
   display: flex;
   flex-direction: column;
-  margin-top: 4%;
+  margin: 2%;
   padding: 2%;
-  width: 500px;
-  border: 2px solid green;
+  flex-wrap: wrap;
+  max-width: 500px;
+  /* border: 2px solid green; */
 }
 .spicon{
   font-size: 15px;

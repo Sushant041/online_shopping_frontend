@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 const PageNavigation = ({title}) => {
   return (
-    <div>
+    <div className='sptitle'>
       <NavLink to="/">Home</NavLink>/{title}
     </div>
   )

@@ -9,7 +9,7 @@ const FeatureProduct = () => {
     if(isLoading){
         return <div style={{textAlign: "center"}}>
           {/* <div className="lds-ellipsis isloading"><div></div><div></div><div></div><div></div></div> */}
-          <h3>.......Loading</h3>
+          <h3>Loading.......</h3>
           </div>
     }
 

@@ -7,10 +7,9 @@ const FeatureProduct = () => {
     const { isLoading, featureProducts } = useProductContext();
 
     if(isLoading){
-        return <div style={{textAlign: "center"}}>
-          {/* <div className="lds-ellipsis isloading"><div></div><div></div><div></div><div></div></div> */}
-          <h3>Loading.......</h3>
-          </div>
+        return (<div style={{textAlign: "center"}}>
+           <h3>Loading.......</h3>
+           <div className="lds-ring"><div></div><div></div><div></div><div></div></div>          </div>)
     }
 
   return (

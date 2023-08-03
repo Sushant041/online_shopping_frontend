@@ -10,15 +10,15 @@ const SpImage  = ({imgs = [{ url:"" }]}) => {
         {
           imgs.map((curElm, index) => {
             return(
-              <figure>
-                <img src={curElm.url} alt={curElm.filename} className='spimg1' key={index} onClick={() =>{ setMainImg(curElm)}} />
+              <figure key={index}>
+                <img src={curElm.url} alt={curElm.filename} className='spimg1' key={curElm.id} onClick={() =>{ setMainImg(curElm)}} />
               </figure>
             )
           })
         }
       </div>
       <div>
-        <img src={mainImg.url} className='spimg2' alt={imgs[0].filename} />
+        <img src={mainImg.url} className='spimg2' alt={mainImg.filename} />
       </div>
     </div>
   )

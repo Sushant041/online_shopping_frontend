@@ -2,11 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
-import IconButton from "@material-ui/core/IconButton";
-import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Input from "@material-ui/core/Input";
 import { Link } from "react-router-dom";
 
 
@@ -25,7 +20,6 @@ function Login() {
       },
       body: JSON.stringify({
         email: credentials.email,
-        password: credentials.password,
       }),
     });
     const json = await response.json();
@@ -78,9 +72,9 @@ function Login() {
   //password hide show 
       const [showPassword, setShowPassword] = React.useState(false);
 
-      const handleClickShowPassword = () => {
-          setShowPassword(!showPassword);
-      };
+      // const handleClickShowPassword = () => {
+      //     setShowPassword(!showPassword);
+      // };
 
   return (
     <>
@@ -108,22 +102,13 @@ function Login() {
           <label htmlFor="exampleInputPassword1" className="form-label">
             Password
           </label>
-          <Input
+          <input
             type={showPassword ? "text" : "password"}
             className="form-control"
             value={credentials.password}
             onChange={onChange}
             id="exampleInputPassword1"
             name="password"
-            endAdornment={
-              <InputAdornment position="end">
-                  <IconButton
-                    onClick={handleClickShowPassword}
-                  >
-                      {showPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-              </InputAdornment>
-            }
             // placeholder="Enter your password"
           />
         </div>
@@ -137,7 +122,6 @@ function Login() {
                 onSuccess={credentialResponse => {
                   var decoded = jwt_decode(credentialResponse.credential);
                   credentials.email = decoded.email;
-                  credentials.password = decoded.sub;
                   googleLogin();
                   console.log(decoded);
                 }}

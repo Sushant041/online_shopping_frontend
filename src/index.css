@@ -45,6 +45,11 @@ code {
 .inpcont{
   width: 30%
 }
+.passeye{
+   font-size: 22px;
+   margin-right: 5px;
+   cursor: pointer;
+}
 .hr{
   border: 1px solid rgb(32, 32, 32);
   width: 300px;
@@ -351,7 +356,7 @@ footer{
 .sptitle{
   margin: 3% 0 0 3%;
   font-weight: 500;
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 .singlepro{
    display: flex;

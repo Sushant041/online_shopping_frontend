@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
-import IconButton from "@material-ui/core/IconButton";
-import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Input from "@material-ui/core/Input";
 import { Link } from "react-router-dom";
+
+
 
 function Signup() {
 
@@ -32,7 +29,6 @@ function Signup() {
       body: JSON.stringify({
         name,
         email,
-        password,
       }),
     });
     const json = await response.json();
@@ -83,12 +79,12 @@ function Signup() {
   const [showcPassword, setShowcPassword] = React.useState(false);
 
 
-  const handleClickShowPassword = () => {
-      setShowPassword(!showPassword);
-  };
-  const handleClickShowcPassword = () => {
-    setShowcPassword(!showcPassword);
-};
+//   const handleClickShowPassword = () => {
+//       setShowPassword(!showPassword);
+//   };
+//   const handleClickShowcPassword = () => {
+//     setShowcPassword(!showcPassword);
+// };
 
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -123,43 +119,25 @@ function Signup() {
           <label htmlFor="password" className="form-label">
             Password
           </label>
-          <Input
+          <input
             type={showPassword ? "text" : "password"}
             className="form-control"
             onChange={onChange}
             id="password"
             name="password"
-            endAdornment={
-              <InputAdornment position="end">
-                  <IconButton
-                    onClick={handleClickShowPassword}
-                  >
-                      {showPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-              </InputAdornment>
-            }
-          />
+           />
         </div>
         <div className="mb-3">
           <label htmlFor="cpassword" className="form-label">
             Confirm Password
           </label>
-          <Input
+          <input
             type={showcPassword ? "text" : "password"}
             className="form-control"
             onChange={onChange}
             id="cpassword"
             name="password"
-            endAdornment={
-              <InputAdornment position="end">
-                  <IconButton
-                    onClick={handleClickShowcPassword}
-                  >
-                      {showcPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-              </InputAdornment>
-            }
-          />
+            />
         </div>
         <div className="container">
         <span><b>Already have account ?</b>  </span>
@@ -172,7 +150,6 @@ function Signup() {
                   var decoded = jwt_decode(credentialResponse.credential);
                   credentials.name = decoded.name; 
                   credentials.email = decoded.email;
-                  credentials.password = decoded.sub;
                   googleSignup();
                 }}
                 onError={() => {

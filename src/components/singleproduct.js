@@ -20,7 +20,7 @@ const SingleProduct = () => {
     const { id } = useParams();
 
     const { 
-       id: alias,
+      //  id: alias,
        name,
        company,
        price,
@@ -44,7 +44,7 @@ const SingleProduct = () => {
      }
   return (
     <div>
-     {/* <PageNavigation title={name} /> */}
+     <PageNavigation title={name} />
      <div className="singlepro">
 
   {/* product images */}

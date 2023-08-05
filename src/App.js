@@ -14,11 +14,13 @@ import Footer from "./components/footer";
 import Error from "./error";
 import { AppProvider } from "./components/context/productcontext";
 import SingleProduct from "./components/singleproduct";
+import { FilterContextProvider } from "./components/context/filtercontext";
 
 function App() {
   return (
     <>
     <AppProvider>
+      <FilterContextProvider>
       <Router>
         <Navbar />
         <Routes>
@@ -36,6 +38,7 @@ function App() {
         </Routes>
         <Footer/>
       </Router>
+      </FilterContextProvider>
       </AppProvider>
     </>
   );

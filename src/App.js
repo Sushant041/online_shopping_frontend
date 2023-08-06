@@ -15,12 +15,14 @@ import Error from "./error";
 import { AppProvider } from "./components/context/productcontext";
 import SingleProduct from "./components/singleproduct";
 import { FilterContextProvider } from "./components/context/filtercontext";
+import { CartProvider } from "./components/context/cartcontext";
 
 function App() {
   return (
     <>
     <AppProvider>
       <FilterContextProvider>
+        <CartProvider>
       <Router>
         <Navbar />
         <Routes>
@@ -38,6 +40,7 @@ function App() {
         </Routes>
         <Footer/>
       </Router>
+      </CartProvider>
       </FilterContextProvider>
       </AppProvider>
     </>

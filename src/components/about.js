@@ -1,15 +1,12 @@
-import { useProductContext } from './context/productcontext'
 import { Link } from "react-router-dom";
-
+import FeatureProduct from "./featureproducts";
 
 function About() {
 
-  const { name } = useProductContext();
 
 
   return (
    <>
-   <h4>{name}</h4>
     <div className="home">
       <div className='home1'>
       <span>Welcome to <h2>Online-Shopping</h2></span>
@@ -22,6 +19,7 @@ function About() {
         <img src="../home.jpg" alt="" />
       </div>
       </div>
+      <FeatureProduct/>
       </>
   )
 }

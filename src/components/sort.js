@@ -18,16 +18,16 @@ export const SortList = () => {
         </button>
        </div>
        <div>
-        <p><strong>{`${filter_products.length}`} Products Available</strong></p>
+        <p style={{ margin: "2px"}}><strong>{`${filter_products.length}`} Products Available</strong></p>
        </div>
        <div className="dropdown">
         <form action="#">
           <label htmlFor="sort"></label>
             <select className="btn btn-success dropdown-toggle" id="sort" onClick={sort}>         
-              <option value="lowest" >Price(lowest)</option>
-              <option value="highest" >Price(highest)</option>
-              <option value="A - Z" >Price(A - Z)</option>
-              <option value="Z - A" >Price(Z - A)</option>
+              <option value="lowest" >(lowest)</option>
+              <option value="highest" >(highest)</option>
+              <option value="A - Z" >(A - Z)</option>
+              <option value="Z - A" >(Z - A)</option>
             </select>
             </form>
           </div>

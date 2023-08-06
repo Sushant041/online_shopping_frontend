@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import {FaCheck} from "react-icons/fa"
 import CartTotalAmount from './carttotalamount';
 import { Link } from 'react-router-dom';
+import { useCartContext } from './context/cartcontext';
 
 const AddtoCart = ({ product }) => {
+
+  const { addToCart } = useCartContext();
 
     const {id,  colors, stock } = product;
     const [color, setColor] = useState(colors[0])
@@ -37,7 +40,7 @@ const AddtoCart = ({ product }) => {
       </p>
       <CartTotalAmount amount={amount} setIncrease={setIncrease} setDecrease={setDecrease} />
       <div>
-        <Link to="/yourcart" className='btn btn-success'>Add To Cart</Link>
+        <Link to="/yourcart" className='btn btn-success' onClick={addToCart(id, color, amount, product)}>Add To Cart</Link>
       </div>
     </div>
   )

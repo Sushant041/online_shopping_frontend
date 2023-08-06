@@ -7,8 +7,8 @@ function Navbar() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
-        <div className="container-fluid nav2">
+      <nav className="navbar navbar-expand-lg bg-dark navbar-dark fixed-top" style={{position: "sticky"}}>
+        <div className="container-fluid nav2 fixed-top" style={{position: "sticky"}}>
           <Link className="navbar-brand" to="/">
             Online-Shopping
           </Link>
@@ -54,21 +54,8 @@ function Navbar() {
                   </Link>
               </li>
             </ul>
-            <form className="d-flex" role="search">
-              <div  className="mx-2 d-flex">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success " type="submit">
-                Search
-              </button>
-              </div>
-              <Link type="button" className="btn btn-success mx-1" to="/login">Login</Link>
+            <Link type="button" className="btn btn-success mx-1" to="/login">Login</Link>
               <Link type="button" className="btn btn-success  mx-1" to="/signup">Signup</Link>
-            </form>
           </div>
         </div>
       </nav>

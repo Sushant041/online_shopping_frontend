@@ -50,25 +50,25 @@ const SingleProduct = () => {
   {/* product images */}
       <div>
         <SpImage imgs={image}/>
+
       </div>
 
   {/* product data */}
-      <div className="sprodata">
-        <h2>{name}</h2>
+      <div className="sprodata">  
+      <h2>{name}</h2>
         <Star stars={stars} review={reviews} />
-        <p>
+        <div>
         <strong>MRP :
           <del style={{marginLeft: "7px"}}>
             <FormatPrice price={price + 25000} />
           </del>
         </strong> 
-        </p>
+        </div>
         <p>
         <strong>Deal of the Day : 
             <span style={{marginLeft: "7px"}}><FormatPrice price={price} /></span>
         </strong>
         </p>
-  
         <p>{description}</p>
 
           <div className='spicon'>
@@ -87,18 +87,23 @@ const SingleProduct = () => {
               <p>1 Year Warranty</p>
             </div>
           </div>
-        <div>
-          <p>Available: <strong>{stock > 0 ? "In Stock" : "Not Available"}</strong>
-           </p>
-
-           <p>
+        <div className='my-2'>
+          <div>
+          <div>
+            Available:
+           <strong>{stock > 0 ? "In Stock" : "Not Available"}</strong>
+           </div>
+           <div>
               ID: <span> {id} </span>
-           </p>
-           <p>
+           </div>
+           <div>
               Brand: <strong> {company} </strong>
-           </p>
+           </div>
+         </div>
            <hr />
+           <div>
            { stock && <AddtoCart product={singleProduct}/>}
+           </div>
         </div>
       </div>
      </div>

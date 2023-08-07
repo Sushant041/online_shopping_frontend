@@ -1,9 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi"
+import { useCartContext } from "./context/cartcontext";
 
 function Navbar() {
   let location = useLocation();
+
+  const { total_items } = useCartContext();
 
   return (
     <>
@@ -49,7 +52,7 @@ function Navbar() {
                   <Link to="/yourcart">
                     <div className="d-flex">
                     <FiShoppingCart className="cart-trolley active" />
-                    <span className="cart-total">10</span>
+                    <span className="cart-total">{total_items}</span>
                     </div>
                   </Link>
               </li>

@@ -25,7 +25,7 @@ const Star = ({ stars, reviews}) => {
   return (
       <div className="strsec">
         {ratingStar} 
-        <p style={{marginLeft: "2%"}}>{stars} ({reviews} customer reviews)</p>
+        <div style={{marginLeft: "2%"}}>{stars} ({reviews} customer reviews)</div>
       </div>
   )
 }

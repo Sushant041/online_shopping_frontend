@@ -30,7 +30,7 @@ export const Listview = ({products}) => {
                 </figure>
                 </NavLink>
                 </div>
-                <div style={{margin: "2% 4%", width: "40%"}}>
+                <div style={{margin: "2% 4%", width: "515px"}}>
                     <h3>{name}</h3>
                     <strong> <FormatPrice price={price} /></strong>
                     <NavLink className="flink" to={`/singleproduct/${id}`}>

@@ -52,9 +52,68 @@
                 cart: updatecart,
             }
 
+          }
         }
-         
+        if(action.type === "CHANGE"){
+
+            let { amount, id } = action.payload;
+
+            let updatecart = state.cart.map((curElm) =>{
+                 
+                if(curElm.id === id){
+
+                    return {
+                        ...curElm,
+                        amount: amount,
+                    }
+                }
+    
+                else{
+                  return curElm;
+                }
+            })
+            return {
+                ...state,
+                cart: updatecart,
+            }
         }
+
+       if(action.type === "TOTAL_PRICE"){
+              
+            let total_price = state.cart.reduce((initialval, curElm) =>{
+              
+                let { price, amount} = curElm;
+                initialval = initialval + price * amount ;
+                return initialval;
+            }, 0)
+
+             return{
+                    ...state,
+                    total_price,
+                }
+        }
+          
+        // if(action.type === "TOTAL_ITEM_PRICE"){
+
+        //     let {total_price, total_items} = state.cart.reduce((initialval, curElm) =>{
+                
+        //         let { amount, price } = curElm;
+
+        //         initialval.total_items +=  + amount ;
+        //         initialval.total_price +=  + price * amount ;
+
+        //         return initialval;
+        //     }, {
+        //         total_items: 0,
+        //         total_price: 0,
+        //     }) 
+        //     return {
+        //         ...state,
+        //         total_items,
+        //         total_price,
+        //     } 
+        // }
+
         if(action.type === "REMOVE"){
 
             let tempcart = state.cart.filter((curElm) => 
@@ -69,7 +128,7 @@
         if(action.type === "TOTAL_ITEM"){
             let items = state.cart.reduce((initialval, curElm) =>{
                 
-                let { amount }= curElm;
+                let { amount } = curElm;
                 initialval = 1 * initialval + 1 * amount ;
                 return initialval;
             }, 0)

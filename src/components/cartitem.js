@@ -4,23 +4,15 @@ import CartTotalAmount from './carttotalamount'
 import {FaTrash} from "react-icons/fa"
 import { useCartContext } from './context/cartcontext'
 
-export const CartItem = ({ id, name, image, color, price, amount, max }) => {
+export const CartItem = ({ id, name, image, color, price, amount}) => {
    
-    const {removeitem} = useCartContext(); 
-    // const amt = amount;
+    const {removeitem, changeamount } = useCartContext(); 
 
     const [amt, setamt] = useState(amount)
 
-    // const setDecrease = () =>{
-    // //   amount > 1 ? setAmount(amount - 1) : setAmount(1);
-    // }
-
-
-    // const setIncrease = () =>{
-    // //   amount < stock ? setAmount(amount + 1) : setAmount(stock);
-    // }
     const setAmt = (value) =>{
         amount = value;
+        changeamount(amount, id);
         setamt(value);
       }
 
@@ -41,7 +33,7 @@ export const CartItem = ({ id, name, image, color, price, amount, max }) => {
             </button>
             </div>
 
-            <strong className='card21'>Subtotal  <br />
+            <strong className='card21'>Price  <br />
              <FormatPrice price={price * amt}/>
              </strong>
 

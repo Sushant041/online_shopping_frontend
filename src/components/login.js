@@ -70,16 +70,17 @@ function Login() {
   };
 
   //password hide show 
-      const [showPassword, setShowPassword] = React.useState(false);
+      const [showPassword, setShowPassword] = useState(false);
 
-      // const handleClickShowPassword = () => {
-      //     setShowPassword(!showPassword);
-      // };
+      const ShowPassword = () => {
+          setShowPassword(!showPassword);
+      };
 
   return (
     <>
     <h3 className="lheading">Login to your Account</h3>
     <div className="container forml">
+
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
@@ -93,7 +94,6 @@ function Login() {
             id="email"
             name="email"
             aria-describedby="emailHelp"
-            // placeholder="Enter your email"
           />
           <div id="emailHelp" className="form-text">
           </div>
@@ -109,8 +109,11 @@ function Login() {
             onChange={onChange}
             id="exampleInputPassword1"
             name="password"
-            // placeholder="Enter your password"
           />
+        </div>
+        <div className="mb-3 form-check">
+          <input type="checkbox" className="form-check-input" id="exampleCheck1" onChange={() =>{ShowPassword()}}/>
+          <label className="form-check-label" htmlFor="exampleCheck1">Show password</label>
         </div>
          <span><b>Does not have any account ? </b></span>
         <Link className="btn btn-outline-success" to="/signup">Signup</Link>
@@ -131,7 +134,7 @@ function Login() {
               />
             </GoogleOAuthProvider>
           </div>
-        <button type="submit" className="btn btn-success btn1">
+         <button type="submit" className="btn btn-success ">
           Login
         </button>
       </form>

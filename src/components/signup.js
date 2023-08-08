@@ -79,12 +79,12 @@ function Signup() {
   const [showcPassword, setShowcPassword] = React.useState(false);
 
 
-//   const handleClickShowPassword = () => {
-//       setShowPassword(!showPassword);
-//   };
-//   const handleClickShowcPassword = () => {
-//     setShowcPassword(!showcPassword);
-// };
+  const ShowPassword = () => {
+      setShowPassword(!showPassword);
+  };
+  const ShowcPassword = () => {
+    setShowcPassword(!showcPassword);
+};
 
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -93,18 +93,15 @@ function Signup() {
      <>
      <h3 className="sheading">Create Account</h3>
     <div className="container forms">
+      
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="name" className="form-label">
-            Name
-          </label>
-          <input
-            type="text"
-            className="form-control" required
-            id="name" name="name" onChange={onChange}
-          />
-        </div>
-        <div className="mb-3">
+
+      <div className="form-floating mb-3">
+        <input type="text" className="form-control" id="name" name="name"/>
+         <label htmlFor="floatingInput">Name</label>
+      </div>
+
+        <div className="form-floating mb-3">
           <label htmlFor="email" className="form-label">
             Email address
           </label>
@@ -115,7 +112,7 @@ function Signup() {
             aria-describedby="emailHelp" required
           />
         </div>
-        <div className="mb-3">
+        <div className="form-floating mb-3">
           <label htmlFor="password" className="form-label">
             Password
           </label>
@@ -127,7 +124,11 @@ function Signup() {
             name="password"
            />
         </div>
-        <div className="mb-3">
+        <div className="mb-3 form-check">
+          <input type="checkbox" className="form-check-input" id="exampleCheck" onChange={() =>{ShowPassword()}}/>
+          <label className="form-check-label" htmlFor="exampleCheck1">Show password</label>
+        </div>
+        <div className="form-floating mb-3">
           <label htmlFor="cpassword" className="form-label">
             Confirm Password
           </label>
@@ -139,13 +140,17 @@ function Signup() {
             name="password"
             />
         </div>
+        <div className="mb-3 form-check">
+          <input type="checkbox" className="form-check-input" id="exampleCheck1" onChange={() =>{ShowcPassword()}}/>
+          <label className="form-check-label" htmlFor="exampleCheck1">Show Confirmed password</label>
+        </div>
         <div className="container">
         <span><b>Already have account ?</b>  </span>
          <Link className="btn btn-outline-success" to="/login">Login</Link>
         <hr className="hr"/>
         <div className="my-3 glbtn">
            <GoogleOAuthProvider clientId="941301008462-jo0o7bo3865igightks3cqi3v952776b.apps.googleusercontent.com">
-          <GoogleLogin
+            <GoogleLogin
                 onSuccess={credentialResponse => {
                   var decoded = jwt_decode(credentialResponse.credential);
                   credentials.name = decoded.name; 

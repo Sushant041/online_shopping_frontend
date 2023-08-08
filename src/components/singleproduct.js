@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useProductContext } from './context/productcontext';
-import { useParams } from 'react-router-dom';
-import PageNavigation from './pagenavigation';
+import { NavLink, useParams } from 'react-router-dom';
 import SpImage from './spimage';
 import FormatPrice from './helpers/formatprice';
 import { TbReplace, TbTruckDelivery } from "react-icons/tb"
@@ -44,7 +43,10 @@ const SingleProduct = () => {
      }
   return (
     <div>
-     <PageNavigation title={name} />
+
+     <NavLink to="/products">
+         <button className="btn btn-success mx-5 my-3">See Products</button>
+     </NavLink>
      <div className="singlepro">
 
   {/* product images */}

@@ -76,7 +76,7 @@ const filterReducer = (state, action) =>{
 
             if(text){
                 tempfilterproduct = tempfilterproduct.filter((curElm) =>{
-                    return curElm.name.toLowerCase().includes(text);
+                    return curElm.name.includes(text);
                 })
             }
             if(category !== "All"){
@@ -86,7 +86,7 @@ const filterReducer = (state, action) =>{
             }
             if(company !== "All"){
                 tempfilterproduct = tempfilterproduct.filter((curElm) =>{
-                    return curElm.company.toLowerCase().includes(company);
+                    return curElm.company.includes(company);
                 })
             }
             if(price){

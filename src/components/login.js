@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-import jwt_decode from "jwt-decode";
 import { Link } from "react-router-dom";
 
 
@@ -20,6 +19,7 @@ function Login() {
       },
       body: JSON.stringify({
         email: credentials.email,
+        password: credentials.password,
       }),
     });
     const json = await response.json();
@@ -40,34 +40,6 @@ function Login() {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
   
-  //Google login function
-  const googleLogin = async () => {
-
-    const {email, password} = credentials;
-
-    const response = await fetch("http://localhost:5000/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content_Type": "application/json",
-        "content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
-    const json = await response.json();
-    console.log(json);
-
-    if(json.success){
-      // Save the auth token and redirect
-      localStorage.setItem('token', json.authtoken)
-      navigate("/");
-    }
-    else{
-      alert("Invalid Credentials")
-    }
-  };
 
   //password hide show 
       const [showPassword, setShowPassword] = useState(false);
@@ -77,39 +49,38 @@ function Login() {
       };
 
   return (
-    <>
-    <h3 className="lheading">Login to your Account</h3>
-    <div className="container forml">
+    <div className="slbody">
 
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">
-            Email address
-          </label>
-          <input
+           <div className="my-5 forml">
+
+    <div className="sheading">Login to your Account</div>
+
+      <form className="my-4" onSubmit={handleSubmit}>
+      <div className="form-floating mb-4">
+         <input
             type="email"
             className="form-control"
-            value={credentials.email}
-            onChange={onChange}
-            id="email"
-            name="email"
-            aria-describedby="emailHelp"
+            id="email" name="email" onChange={onChange}
+            required placeholder="Email address"
           />
-          <div id="emailHelp" className="form-text">
-          </div>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
-            Password
+          <label htmlFor="floatingInput" className="form-label">
+            Email address
           </label>
+          
+        </div>
+        <div className="form-floating mb-3">
           <input
             type={showPassword ? "text" : "password"}
             className="form-control"
             value={credentials.password}
             onChange={onChange}
             id="exampleInputPassword1"
-            name="password"
+            name="password" placeholder="Password"
           />
+          <label htmlFor="exampleInputPassword1" className="form-label">
+            Password
+          </label>
+          
         </div>
         <div className="mb-3 form-check">
           <input type="checkbox" className="form-check-input" id="exampleCheck1" onChange={() =>{ShowPassword()}}/>
@@ -123,10 +94,8 @@ function Login() {
           <GoogleOAuthProvider clientId="941301008462-jo0o7bo3865igightks3cqi3v952776b.apps.googleusercontent.com">
           <GoogleLogin
                 onSuccess={credentialResponse => {
-                  var decoded = jwt_decode(credentialResponse.credential);
-                  credentials.email = decoded.email;
-                  googleLogin();
-                  console.log(decoded);
+                  localStorage.setItem('token', credentialResponse.credential)
+                    navigate("/");
                 }}
                 onError={() => {
                   console.log('Login Failed');
@@ -134,12 +103,12 @@ function Login() {
               />
             </GoogleOAuthProvider>
           </div>
-         <button type="submit" className="btn btn-success ">
+          <button type="submit" className="btn1">
           Login
         </button>
       </form>
     </div>
-    </>
+    </div>
   );
 }
 

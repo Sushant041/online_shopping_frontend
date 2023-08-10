@@ -2,9 +2,26 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi"
 import { useCartContext } from "./context/cartcontext";
+import { useNavigate } from 'react-router-dom';
+
+
 
 function Navbar() {
   let location = useLocation();
+
+
+  if(localStorage.getItem("token")){
+
+  }
+
+
+  let navigate = useNavigate();
+
+  const logout = () => {
+     console.log("logout");
+    localStorage.removeItem("token")
+     navigate('/login');
+  }
 
   const { total_items } = useCartContext();
 
@@ -57,8 +74,18 @@ function Navbar() {
                   </Link>
               </li>
             </ul>
-            <Link type="button" className="btn btn-success mx-1" to="/login">Login</Link>
-              <Link type="button" className="btn btn-success  mx-1" to="/signup">Signup</Link>
+             {!localStorage.getItem("token") &&
+             <div>
+              <Link type="button" className="btn btn-success mx-1" to="/login">Login</Link>
+              <Link type="button" className="btn btn-success  mx-1" to="/signup" >Signup</Link>
+              </div>
+               }
+              {localStorage.getItem("token") &&
+              <div className="logout mx-4 my-2" >
+                <span>Hello! <br /> Welcome</span>
+                <button className="btn btn-secondary" onClick={() => logout()}>Logout</button>
+               </div>
+                 }  
           </div>
         </div>
       </nav>

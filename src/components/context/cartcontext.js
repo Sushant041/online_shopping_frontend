@@ -5,8 +5,8 @@ import  reducer  from "../reducer/cartreducer"
 const CartContext = createContext();
 
 const getcartdata = () =>{
-
-    let cartdata = localStorage.getItem("cartdata");
+    
+     let cartdata = localStorage.getItem("cartdata");
     if(cartdata.length === 0){
         return [];
     }
@@ -17,6 +17,7 @@ const getcartdata = () =>{
 
 const initialState = {
     cart: getcartdata(),
+    // cart: [],
     total_items: 0,
     total_price: 0,
     shipping_fee: 5000,

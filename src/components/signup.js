@@ -20,7 +20,7 @@ function Signup() {
       alert("password did not match with confirm password")
       return 0;
     }
-    const response = await fetch("http://localhost:5000/api/auth/createuser", {
+    const response = await fetch("https://asdd-sj4f.onrender.com/api/auth/createuser", {
       method: "POST",
       headers: {
         "Content_Type": "application/json",
